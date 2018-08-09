@@ -1,0 +1,85 @@
+.todo__item{
+  cursor: pointer;
+  position: relative;
+  padding-left: 35px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  margin: 1em;
+}
+
+.todo__checkbox{
+  position: absolute;
+  opacity: 0;
+}
+
+.checkmark{
+  position: absolute;
+  top:0;
+  left:0;
+  height: 30px;
+  width: 30px;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.todo__item:hover .todo__checkbox ~ .checkmark{
+  background:#ccc;
+}
+
+// .todo__item .todo__checkbox:checked ~ .checkmark{
+//   background:#2196F3;
+// }
+
+// .todo__item .todo__checkbox:checked ~ .todo{
+//   text-decoration:line-through;
+// }
+
+.checked{
+  background:#2196F3;
+}
+
+.linethrough{
+  text-decoration:line-through;
+}
+
+.checkmark:after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.todo__checkbox:checked ~ .checkmark:after{
+  display: block;
+}
+
+.checkmark:after{
+  left: 12px;
+  top: 5px;
+  width: 8px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.todo{
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.delete__btn{
+  padding:0.4rem 0.6rem;
+  background:rgb(241, 71, 71);
+  border:0;
+  box-shadow: 1px 2px 20px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  right: 50px;
+  color: #fff;
+  outline: none;
+}

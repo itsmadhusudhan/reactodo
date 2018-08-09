@@ -10,7 +10,7 @@
 
 .todo__checkbox{
   position: absolute;
-  opacity: 0;
+  opacity: 0; 
 }
 
 .checkmark{
@@ -24,37 +24,33 @@
   border-radius: 50%;
 }
 
-.todo__item:hover .todo__checkbox ~ .checkmark{
-  background:#ccc;
+// .todo__item:hover .todo__checkbox:not(:checked) ~ .checkmark{
+//   // background:#ccc;
+// }
+
+.done{
+  background:#2196F3;
 }
 
-// .todo__item .todo__checkbox:checked ~ .checkmark{
-//   background:#2196F3;
-// }
-
-// .todo__item .todo__checkbox:checked ~ .todo{
-//   text-decoration:line-through;
-// }
-
-.checked{
-  background:#2196F3;
+.todo__item:hover .done ~ .checkmark{
+  background:none;
 }
 
 .linethrough{
   text-decoration:line-through;
 }
 
-.checkmark:after{
+.done:after{
   content: "";
   position: absolute;
-  display: none;
-}
-
-.todo__checkbox:checked ~ .checkmark:after{
   display: block;
 }
 
-.checkmark:after{
+.todo__checkbox:checked ~ .done:after{
+  // display: block;
+}
+
+.done:after{
   left: 12px;
   top: 5px;
   width: 8px;

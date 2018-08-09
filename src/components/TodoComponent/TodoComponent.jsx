@@ -12,8 +12,20 @@ const TodoComponent = ({ todo, changeStatus, deleteTodo }) => {
           changeStatus(todo.id);
         }}
       />
-      <span  className={todo.active?styles.checkmark:`${styles.checkmark} ${styles.checked}`} />
-      <span className={todo.active?styles.todo:`${styles.todo} ${styles.linethrough}`}>{todo.text}</span>
+      <span
+        className={
+          todo.active
+            ? styles.checkmark
+            : `${styles.checkmark} ${styles.done}`
+        }
+      />
+      <span
+        className={
+          todo.active ? styles.todo : `${styles.todo} ${styles.linethrough}`
+        }
+      >
+        {todo.text}
+      </span>
       <button
         className={styles.delete__btn}
         onClick={() => {

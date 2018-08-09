@@ -23,6 +23,7 @@ class App extends React.Component {
     };
   }
 
+  //function that creates new todo item
   createTodo = todo => {
     // console.log(todo);
     this.setState(prevState => {
@@ -30,6 +31,7 @@ class App extends React.Component {
     });
   };
 
+  //function that changes the status of todo
   changeTodoStatus = id => {
     this.setState(prevState => ({
       todos: prevState.todos
@@ -42,18 +44,21 @@ class App extends React.Component {
     }));
   };
 
+  //function that deletes todo with its id
   deleteTodo = id => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== id)
     }));
   };
 
+  //function that clears/deletes completed todos
   clearCompleted = () => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.active !== false)
     }));
   };
 
+  //function that changes the view 
   changeViewStatus = newStatus => {
     this.setState({ status: newStatus });
   };
@@ -71,6 +76,7 @@ class App extends React.Component {
         <ActionBar
           clearCompleted={this.clearCompleted}
           changeViewStatus={this.changeViewStatus}
+          status={this.state.status}
         />
         <TodoListContainer
           todos={currentTodos}

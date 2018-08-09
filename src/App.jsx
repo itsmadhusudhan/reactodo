@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from 'uuid';
 import TodoInput from "./components/TodoInput";
 import TodoListContainer from "./components/TodoListContainer";
 import ActionBar from "./components/ActionBar";
@@ -8,7 +9,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
+      todos: [{
+        id: uuid(),
+        text: "Be Positive",
+        active:true
+      },{
+        id: uuid(),
+        text: "Never Giveup",
+        active:true
+      }],
       active: true,
       status: "ALL"
     };
@@ -58,17 +67,17 @@ class App extends React.Component {
           : this.state.todos;
     return (
       <div className={styles.container}>
-        {console.log(this.state.status)}
         <TodoInput createTodo={this.createTodo} />
+        <ActionBar
+          clearCompleted={this.clearCompleted}
+          changeViewStatus={this.changeViewStatus}
+        />
         <TodoListContainer
           todos={currentTodos}
           changeTodoStatus={this.changeTodoStatus}
           deleteTodo={this.deleteTodo}
         />
-        <ActionBar
-          clearCompleted={this.clearCompleted}
-          changeViewStatus={this.changeViewStatus}
-        />
+        
       </div>
     );
   }

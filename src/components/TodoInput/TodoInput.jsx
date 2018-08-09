@@ -6,9 +6,9 @@ const TodoInput = props => {
   return (
     <input
       className={styles.todo__input}
-      placeholder="Enter a new todo"
+      placeholder="Type new Todo and press enter"
       onKeyPress={e => {
-        e.key === "Enter"
+        e.key === "Enter" && e.target.value.length!==0
           ? props.createTodo({
               id: uuid(),
               text: e.target.value,

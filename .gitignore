@@ -65,7 +65,3 @@ typings/
 
 
 .cache
-
-public
-
-gatsby-ssr.js
